@@ -1,4 +1,4 @@
-## Dummary of how the protocol works
+## Summary of how the protocol works
 
 ### Packets
 
