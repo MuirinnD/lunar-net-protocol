@@ -52,6 +52,9 @@ int main() {
             io_context.stop(); // Request io_context to stop
           }
         });
+    
+    // initialise the random number generator using the time
+    srand(time(NULL)); // sets a new seed 
 
     // Create Rover
     Rover rover(io_context, BASE_HOST, BASE_PORT, ROVER_ID);
@@ -103,7 +106,7 @@ int main() {
           std::cout << "[ROVER MAIN] Sending Telemetry..." << std::endl;
           std::map<std::string, double> readings = {
               {"temperature",
-               25.5 + (rand() % 10) / 10.0}, // Example random data
+               -173 + (rand() % 300)}, // uses actual moon high and low temperatures https://science.nasa.gov/moon/facts/
               {"battery_voltage", 12.1 - (rand() % 5) / 10.0}};
           rover.send_telemetry(readings);
           last_telemetry_time = now;
